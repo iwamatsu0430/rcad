@@ -1,0 +1,27 @@
+{
+  "name": "rcd",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "bin": {
+    "rcd": "./bin/rcd"
+  },
+  "dependencies": {
+    "electron": "^1.6.2",
+    "express": "^4.15.2",
+    "node-sass": "^4.5.0",
+    "riot": "^3.3.2",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build:scss": "./node_modules/.bin/node-sass -r client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
+    "build:riot": "./node_modules/.bin/riot client/src/components client/app/assets/javascripts/components.js",
+    "watch:scss": "./node_modules/.bin/node-sass -r -w client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
+    "watch:riot": "./node_modules/.bin/riot -w client/src/components client/app/assets/javascripts/components.js",
+    "build": "npm run build:scss & npm run build:riot",
+    "watch": "npm run watch:scss & npm run watch:riot"
+  },
+  "author": "iwamatsu0430",
+  "license": "ISC"
+}

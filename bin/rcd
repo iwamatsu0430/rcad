@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const childProcess  = require('child_process')
+const path          = require('path')
+const httpServer    = require('http-server')
+const opener        = require('opener')
+const server        = require('../server/routes')
+const electronPath  = require('electron')
+
+const clientPort = process.env.RCD_CLIENT_PORT || 7000
+const mode = process.argv[2]
+const appPath = `${__dirname}/../client/app`
+
+switch (mode) {
+  case undefined:
+  case 'web':
+    server(() => {
+      httpServer.createServer({
+        root: appPath
+      }).listen(clientPort, '0.0.0.0', () => {
+        console.log(`RCD Web Client start: http://localhost:${clientPort}/`)
+        opener(`http://localhost:${clientPort}`)
+      })
+    })
+    break
+  case 'electron':
+    server(() => {
+      console.log('RCD Electron Client start')
+      childProcess.execSync(`${electronPath} ${appPath}/index.html`)
+      process.exit(0)
+    })
+    break
+  default:
+    console.log(`Unexpected arg: ${mode}`)
+    console.log(`Allowed command are 'rcd web' or 'rcd electron'`)
+    break
+}
