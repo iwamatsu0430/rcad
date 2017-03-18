@@ -1,16 +1,27 @@
 const express = require("express")
 const app = express()
+const bodyParser = require('body-parser')
 
 const routes = () => {
-  const sample = require('./controllers/sample')
-  app.get("/api/foo", sample.foo)
-  app.get("/api/bar", sample.bar)
+  const rest = require('./controllers/rest')
+  app.post('/rest', rest.exec)
 }
 
 const run = callback => {
   const serverPort = process.env.RCD_SERVER_PORT || 7001
   app.listen(serverPort, () => {
     console.log(`RCD API Server start: http://localhost:${serverPort}/`)
+
+    // Allow CORS
+    app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*")
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+      next()
+    })
+
+    // for parsing application/json
+    app.use(bodyParser.json())
+
     routes()
     callback()
   })
