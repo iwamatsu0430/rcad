@@ -9,7 +9,7 @@ const opener        = require('opener')
 const server        = require('../server/routes')
 const electronPath  = require('electron')
 
-const clientPort = process.env.RCD_CLIENT_PORT || 7000
+const clientPort = process.env.RCAD_CLIENT_PORT || 7000
 const mode = process.argv[2]
 const clientPath = `${__dirname}/../client`
 
@@ -20,7 +20,7 @@ switch (mode) {
       httpServer.createServer({
         root: `${clientPath}/app`
       }).listen(clientPort, '0.0.0.0', () => {
-        console.log(`RCD Web Client start: http://localhost:${clientPort}/`)
+        console.log(`RCAD Web Client start: http://localhost:${clientPort}/`)
         opener(`http://localhost:${clientPort}`)
       })
     })
@@ -30,6 +30,6 @@ switch (mode) {
     break
   default:
     console.log(`Unexpected arg: ${mode}`)
-    console.log(`Allowed command are 'rcd web' or 'rcd electron'`)
+    console.log(`Allowed command are 'rcad web' or 'rcad electron'`)
     break
 }

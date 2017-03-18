@@ -8,7 +8,7 @@ const routes = () => {
 }
 
 const run = callback => {
-  const serverPort = process.env.RCD_SERVER_PORT || 7001
+  const serverPort = process.env.RCAD_SERVER_PORT || 7001
   app.listen(serverPort, () => {
     // Allow CORS
     app.use((req, res, next) => {
@@ -16,7 +16,7 @@ const run = callback => {
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
       next()
     })
-    
+
     // for parsing application/json
     app.use(bodyParser.json())
 

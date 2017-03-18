@@ -1,13 +1,15 @@
 {
-  "name": "rcd",
+  "name": "rcad",
   "version": "0.0.1",
-  "description": "",
+  "description": "REST Client with API Documentation",
   "main": "main.js",
   "bin": {
-    "rcd": "./bin/rcd"
+    "rcad": "./bin/rcad"
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
     "body-parser": "^1.17.1",
     "electron": "^1.6.2",
     "express": "^4.15.2",
@@ -17,12 +19,14 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build:scss": "./node_modules/.bin/node-sass -r client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
-    "build:riot": "./node_modules/.bin/riot client/src/components client/app/assets/javascripts/components.js",
-    "watch:scss": "./node_modules/.bin/node-sass -r -w client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
-    "watch:riot": "./node_modules/.bin/riot -w client/src/components client/app/assets/javascripts/components.js",
-    "build": "npm run build:scss & npm run build:riot",
-    "watch": "npm run watch:scss & npm run watch:riot"
+    "build:js": "babel client/src -d client/app/assets/javascripts",
+    "build:scss": "node-sass -r client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
+    "build:riot": "riot client/src/components client/app/assets/javascripts/components.js",
+    "watch:js": "babel client/src --watch -d client/app/assets/javascripts",
+    "watch:scss": "node-sass -r -w client/src/stylesheets/app.scss client/app/assets/stylesheets/app.css",
+    "watch:riot": "riot -w client/src/components client/app/assets/javascripts/components.js",
+    "build": "npm run build:js & npm run build:scss & npm run build:riot",
+    "watch": "npm run watch:js & npm run watch:scss & npm run watch:riot"
   },
   "author": "iwamatsu0430",
   "license": "ISC"
