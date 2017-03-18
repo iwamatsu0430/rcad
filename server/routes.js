@@ -10,15 +10,13 @@ const routes = () => {
 const run = callback => {
   const serverPort = process.env.RCD_SERVER_PORT || 7001
   app.listen(serverPort, () => {
-    console.log(`RCD API Server start: http://localhost:${serverPort}/`)
-
     // Allow CORS
     app.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*")
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
       next()
     })
-
+    
     // for parsing application/json
     app.use(bodyParser.json())
 
