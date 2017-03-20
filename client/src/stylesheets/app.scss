@@ -1,5 +1,7 @@
+// Refer color code https://coolors.co/app/f6f7eb-e94f37-393e41-3f88c5-44bba4
+
 * {
-  color: #333;
+  color: #393E41;
   font-size: 18px;
 }
 
@@ -44,9 +46,7 @@ app {
   }
 }
 
+@import "project";
+@import "requests";
 @import "rest";
-
-result {
-  overflow: scroll;
-  padding: 0 10px;
-}
+@import "result";

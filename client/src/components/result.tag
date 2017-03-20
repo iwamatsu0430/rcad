@@ -1,6 +1,6 @@
 <result>
   <section if={ isShown }>
-    <p>STATUS: { result.statusCode }</p>
+    <p>{ result.statusCode } { result.statusText }</p>
     <ul>
       <li each={ value, key in result.header }>{ key }: { value }</li>
     </ul>
@@ -10,6 +10,7 @@
   <script>
     this.isShown = false
     this.result = {
+      statusText: '',
       statusCode: null,
       header: {},
       body: null

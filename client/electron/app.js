@@ -1,4 +1,4 @@
-const server                  = require('../../server/routes')
+const server                  = require('../../server/app')
 const { app, BrowserWindow }  = require('electron')
 const path                    = require('path')
 const url                     = require('url')
@@ -6,7 +6,7 @@ const url                     = require('url')
 let win
 
 const createWindow = () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 1280, height: 800})
   win.loadURL(url.format({
     pathname: path.join(`${__dirname}/../app`, 'index.html'),
     protocol: 'file:',

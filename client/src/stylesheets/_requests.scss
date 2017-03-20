@@ -1,0 +1,52 @@
+requests {
+  & * {
+    color: #fff;
+  }
+
+  & ul {
+    margin-left: 20px;
+  }
+
+  & li {
+    margin-top: 5px;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & p {
+      border-radius: 5px;
+      display: inline;
+      padding: 5px 10px;
+
+      & .controls {
+        opacity: 0;
+      }
+    }
+
+    & p:hover {
+      background: #4E5559;
+
+      & .controls {
+        opacity: 1;
+      }
+    }
+
+    & .controls {
+      margin-left: 5px;
+      transition: 0.3s;
+
+      & i {
+        margin-left: 5px;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 1;
+          color: #E94F37;
+        }
+      }
+    }
+  }
+}

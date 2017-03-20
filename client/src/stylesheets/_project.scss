@@ -1,0 +1,91 @@
+project {
+  overflow: scroll;
+
+  & section[ref="cwd"] {
+    position: relative;
+
+    & input {
+      width: 100%;
+      border: none;
+      padding: 5px;
+      padding-left: 30px;
+      font-size: 12px;
+    }
+    & i {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+
+  }
+
+  & section[ref="init-project"] {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+      text-align: center;
+      color: #F6F7EB;
+    }
+
+    & button {
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #F6F7EB;
+      padding: 5px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #FDFFF2;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  & section[ref="project-tree"] {
+
+    margin-top: 10px;
+    margin-left: 10px;
+
+    & > p {
+      border-radius: 5px;
+      display: inline;
+      padding: 5px 10px;
+      color: #fff;
+      transition: 0.3s;
+
+      & .controls {
+        opacity: 0;
+
+        & i {
+          margin-left: 5px;
+          color: #fff;
+          cursor: pointer;
+          opacity: 0.5;
+          transition: 0.3s;
+
+          &:hover {
+            opacity: 1;
+            color: #E94F37;
+          }
+        }
+      }
+
+      &:hover {
+        background: #4E5559;
+
+        & .controls {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}

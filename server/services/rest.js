@@ -14,7 +14,8 @@ class RESTService {
 
       const createResponse = res => {
         return {
-          status: res.status,
+          statusCode: res.status,
+          statusText: res.statusText,
           header: res.headers,
           body: res.data
         }

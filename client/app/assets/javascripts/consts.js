@@ -5,6 +5,8 @@
     server: {
       host: 'http://localhost:7001',
       endpoints: {
+        getCWD: '/project/cwd',
+        initProject: '/project',
         postREST: '/rest'
       }
     },

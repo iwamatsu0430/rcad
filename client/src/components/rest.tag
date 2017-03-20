@@ -58,7 +58,9 @@
       </section>
     </div>
     <div class='fixme-third-column'>
-      <button type='submit'>SEND</button>
+      <button type='submit'>
+        <i class="fa fa-play"></i> SEND
+      </button>
     </div>
   </form>
 
@@ -119,7 +121,9 @@
     }
 
     isAllowedBodyMethod() {
-      return this.restParam.method === 'post' || this.restParam.method === 'put'
+      return this.restParam.method === 'post' ||
+        this.restParam.method === 'put' ||
+        this.restParam.method === 'patch'
     }
 
     changeMethod(e) {
@@ -145,16 +149,8 @@
       if (this.isAllowedBodyMethod()) {
         this.restParam.body = this.editor.getValue().trim()
       }
-      axios.post(`${consts.server.host}${consts.server.endpoints.postREST}`, {
-        data: this.restParam
-      })
-      .then(res => {
-        observer.trigger(consts.events.results.update, {
-          statusCode: res.data.data.status,
-          header: res.data.data.header,
-          body: res.data.data.body
-        })
-      })
+      axios.post(`${consts.server.host}${consts.server.endpoints.postREST}`, {data: this.restParam})
+      .then(res => observer.trigger(consts.events.results.update, res.data))
     }
   </script>
 </rest>

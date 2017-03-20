@@ -1,5 +1,5 @@
 * {
-  color: #333;
+  color: #393E41;
   font-size: 18px; }
 
 body {
@@ -33,6 +33,97 @@ app > main {
   app > main > result {
     flex: 1; }
 
+project {
+  overflow: scroll; }
+  project section[ref="cwd"] {
+    position: relative; }
+    project section[ref="cwd"] input {
+      width: 100%;
+      border: none;
+      padding: 5px;
+      padding-left: 30px;
+      font-size: 12px; }
+    project section[ref="cwd"] i {
+      position: absolute;
+      top: 5px;
+      left: 5px; }
+  project section[ref="init-project"] {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    project section[ref="init-project"] p {
+      text-align: center;
+      color: #F6F7EB; }
+    project section[ref="init-project"] button {
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #F6F7EB;
+      padding: 5px 20px;
+      cursor: pointer;
+      transition: 0.3s; }
+      project section[ref="init-project"] button:hover {
+        background: #FDFFF2; }
+      project section[ref="init-project"] button:focus {
+        outline: none; }
+  project section[ref="project-tree"] {
+    margin-top: 10px;
+    margin-left: 10px; }
+    project section[ref="project-tree"] > p {
+      border-radius: 5px;
+      display: inline;
+      padding: 5px 10px;
+      color: #fff;
+      transition: 0.3s; }
+      project section[ref="project-tree"] > p .controls {
+        opacity: 0; }
+        project section[ref="project-tree"] > p .controls i {
+          margin-left: 5px;
+          color: #fff;
+          cursor: pointer;
+          opacity: 0.5;
+          transition: 0.3s; }
+          project section[ref="project-tree"] > p .controls i:hover {
+            opacity: 1;
+            color: #E94F37; }
+      project section[ref="project-tree"] > p:hover {
+        background: #4E5559; }
+        project section[ref="project-tree"] > p:hover .controls {
+          opacity: 1; }
+
+requests * {
+  color: #fff; }
+
+requests ul {
+  margin-left: 20px; }
+
+requests li {
+  margin-top: 5px; }
+  requests li a {
+    text-decoration: none; }
+  requests li p {
+    border-radius: 5px;
+    display: inline;
+    padding: 5px 10px; }
+    requests li p .controls {
+      opacity: 0; }
+  requests li p:hover {
+    background: #4E5559; }
+    requests li p:hover .controls {
+      opacity: 1; }
+  requests li .controls {
+    margin-left: 5px;
+    transition: 0.3s; }
+    requests li .controls i {
+      margin-left: 5px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.3s; }
+      requests li .controls i:hover {
+        opacity: 1;
+        color: #E94F37; }
+
 rest form > div {
   margin-top: 10px;
   padding: 0 10px; }
@@ -51,7 +142,6 @@ rest form .fixme-second-column {
   display: flex; }
   rest form .fixme-second-column .fixme-left-side {
     width: 350px;
-    border-right: 1px #999 dashed;
     text-align: center; }
     rest form .fixme-second-column .fixme-left-side input[type="text"] {
       width: 150px; }
@@ -66,14 +156,14 @@ rest form .fixme-second-column {
 rest form .fixme-third-column {
   margin: 10px 10px 0;
   text-align: center;
-  border-bottom: 1px dashed #999;
+  border-bottom: 1px dashed #393E41;
   padding-bottom: 10px; }
 
 rest input[type="text"],
 rest textarea,
 rest select {
   background: #fff;
-  border: 1px solid #ccc; }
+  border: none; }
   rest input[type="text"]:focus,
   rest textarea:focus,
   rest select:focus {
@@ -107,6 +197,8 @@ rest button[type="submit"] {
   cursor: pointer; }
   rest button[type="submit"]:hover {
     background: #4699DD; }
+  rest button[type="submit"] i {
+    color: #fff; }
 
 rest button {
   background: #fff;

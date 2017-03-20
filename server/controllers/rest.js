@@ -6,10 +6,7 @@ class RESTController {
     // TODO body validation
     service
       .exec(req.body.data)
-      .then(result => res.json({
-        status: 'OK',
-        data: result
-      }))
+      .then(result => res.json(result))
       .catch(result => res.json({
         status: 'ERROR',
         data: result

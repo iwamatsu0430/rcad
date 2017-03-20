@@ -28,7 +28,6 @@ rest {
 
       & .fixme-left-side {
         width: 350px;
-        border-right: 1px #999 dashed;
         text-align: center;
 
         & input[type="text"] {
@@ -53,7 +52,7 @@ rest {
     & .fixme-third-column {
       margin: 10px 10px 0;
       text-align: center;
-      border-bottom: 1px dashed #999;
+      border-bottom: 1px dashed #393E41;
       padding-bottom: 10px;
     }
   }
@@ -63,7 +62,7 @@ rest {
   textarea,
   select {
     background: #fff;
-    border: 1px solid #ccc;
+    border: none;
 
     &:focus {
       outline: none;
@@ -106,6 +105,10 @@ rest {
 
     &:hover {
       background: #4699DD;
+    }
+
+    & i {
+      color: #fff;
     }
   }
 
