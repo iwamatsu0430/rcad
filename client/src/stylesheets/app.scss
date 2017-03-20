@@ -1,0 +1,52 @@
+* {
+  color: #333;
+  font-size: 18px;
+}
+
+body {
+  background: #F6F7EB;
+}
+
+app {
+  & > project {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: #393E41;
+    transition: 0.5s;
+
+    &.project-hidden {
+      left: -300px;
+      width: 0;
+    }
+  }
+  & > main {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    height: 100%;
+    transition: 0.5s;
+
+    &.project-hidden {
+      left: 0;
+      width: 100%;
+    }
+
+    & > result {
+      flex: 1;
+    }
+  }
+}
+
+@import "rest";
+
+result {
+  overflow: scroll;
+  padding: 0 10px;
+}
